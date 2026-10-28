@@ -7,7 +7,7 @@ public class NumberGuesser {
         	new NumberGuesser();
     	}
 
-    	public Guesser(){
+    	public NumberGuesser(){
 	    	String choice = "";
 	    	while (choice.equals("0")){
 		   	choice=menu();
@@ -38,7 +38,7 @@ public class NumberGuesser {
 			turnCount++;
 			System.out.println("Turn " + turnCount);
 			System.out.print("Please guess a number: ");
-			int userGuess = input.nextLine();
+			int userGuess = input.nextInt();
 
 			if (userGuess < correct){
 				System.out.println("Too low!");
@@ -50,9 +50,9 @@ public class NumberGuesser {
 				if (turnCount < 7){
 					System.out.print("Great job!");
 				} else if (turnCount > 7){
-					System.out.print("Do better next time...);
+					System.out.print("Do better next time...");
 				} else{
-					System.out.print("You did perfectly average!);
+					System.out.print("You did perfectly average!");
 				}
 			} // end correct if
 		} // end while 
@@ -71,10 +71,20 @@ public class NumberGuesser {
 		while (keepGoing){
 			cGuess = 50;
 			System.out.println("My guess: " + cGuess);
-			System.out.println("Was my guess too (H)igh, too (L)ow, or (C)orrect?);
+			System.out.println("Was my guess too (H)igh, too (L)ow, or (C)orrect?");
 			System.out.print("Respond with H, L, or C: ");
-			String uResponse = 
-	}
+			String uResponse = input.nextLine();
+
+			if (uResponse.equalsIgnoreCase("h")){
+				cGuess = cGuess / 2;
+			} else if (uResponse.equalsIgnoreCase("l")){
+				cGuess = cGuess + (cGuess / 2);
+			} else if (uResponse.equalsIgnoreCase("c")){
+				keepGoing = false;
+				System.out.println("I got it!");
+			} 
+		}
+	} // end computerGuesses
 	    
-	
+} // end class
 

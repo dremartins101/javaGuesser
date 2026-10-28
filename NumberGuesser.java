@@ -28,7 +28,41 @@ public class NumberGuesser {
 		return input.nextLine();
 	} 
 
-	public void 
+	public void userGuesses(){
+		System.out.println("User Guesses:");
+		int correct = (int)(Math.random() * 100) + 1;
+		int turnCount = 0;
+		boolean keepGoing = false;
+
+		while (keepGoing){
+			turnCount++;
+			System.out.println("Turn " + turnCount);
+			System.out.print("Please guess a number: ");
+			int userGuess = input.nextLine();
+
+			if (userGuess < correct){
+				System.out.println("Too low!");
+			} if (userGuess > correct){
+				System.out.println("Too high!");
+			} if (userGuess == correct){
+				keepGoing = false;
+				System.out.println("You got it!");
+				if (turnCount < 7){
+					System.out.print("Great job!");
+				} else if (turnCount > 7){
+					System.out.print("Do better next time...);
+				} else{
+					System.out.print("You did perfectly average!);
+				}
+			} // end correct if
+		} // end while 
+
+		
+	}
+	
+	public void computerGuesses(){
+
+	}
 	    
 	
 

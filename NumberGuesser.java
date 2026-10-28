@@ -9,7 +9,7 @@ public class NumberGuesser {
 
     	public NumberGuesser(){
 	    	String choice = "";
-	    	while (choice.equals("0")){
+	    	while (!choice.equals("0")){
 		   	choice=menu();
 		   	if (choice.equals("1")){
 			   	userGuesses();
@@ -19,20 +19,21 @@ public class NumberGuesser {
 		   	}
 	    	}
 	    	System.out.println("Goodbye!");
-    	 }
-	public String menu(){
-		System.out.println("\n0) Exit");
-		System.out.println("1) User Guesses #");
-		System.out.println("2) Computer Guesses #");
-		System.out.print("Please enter a # 0-2:");
-		return input.nextLine();
-	} 
+    	}
 
+	public String menu(){
+                System.out.println("\n0) Exit");
+                System.out.println("1) User Guesses #");
+                System.out.println("2) Computer Guesses #");
+                System.out.print("Please enter a # 0-2:");
+                return input.nextLine();
+        }
+ 
 	public void userGuesses(){
 		System.out.println("User Guesses:");
 		int correct = (int)(Math.random() * 100) + 1;
 		int turnCount = 0;
-		boolean keepGoing = false;
+		boolean keepGoing = true;
 
 		while (keepGoing){
 			turnCount++;

@@ -61,7 +61,19 @@ public class NumberGuesser {
 	}
 	
 	public void computerGuesses(){
+		System.out.println("Computer Guesses: \n");
+		System.out.println("Think of a number...");
+		int cGuess = 0;
+		boolean keepGoing = true;
+		int max = 100;
+		int min = 0;
 
+		while (keepGoing){
+			cGuess = 50;
+			System.out.println("My guess: " + cGuess);
+			System.out.println("Was my guess too (H)igh, too (L)ow, or (C)orrect?);
+			System.out.print("Respond with H, L, or C: ");
+			String uResponse = 
 	}
 	    
 	

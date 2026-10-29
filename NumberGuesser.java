@@ -25,21 +25,22 @@ public class NumberGuesser {
                 System.out.println("\n0) Exit");
                 System.out.println("1) User Guesses #");
                 System.out.println("2) Computer Guesses #");
-                System.out.print("Please enter a # 0-2:");
+                System.out.print("Please enter a # 0-2: ");
                 return input.nextLine();
         }
  
 	public void userGuesses(){
-		System.out.println("User Guesses:");
+		System.out.println("User Guesses: ");
 		int correct = (int)(Math.random() * 100) + 1;
 		int turnCount = 0;
 		boolean keepGoing = true;
 
 		while (keepGoing){
 			turnCount++;
-			System.out.println("Turn " + turnCount);
+			//System.out.println("Turn " + turnCount);
 			System.out.print("Please guess a number: ");
 			int userGuess = input.nextInt();
+			input.nextLine();
 
 			if (userGuess < correct){
 				System.out.println("Too low!");
@@ -56,33 +57,35 @@ public class NumberGuesser {
 					System.out.print("You did perfectly average!");
 				}
 			} // end correct if
-		} // end while 
-
-		
-	}
+		} // end while 	
+	} // end UserGuesses
 	
 	public void computerGuesses(){
 		System.out.println("Computer Guesses: \n");
 		System.out.println("Think of a number...");
 		int cGuess = 0;
 		boolean keepGoing = true;
-		int max = 100;
-		int min = 0;
+		int high = 100;
+		int low = 0;
+		int turnCount = 0;
 
 		while (keepGoing){
-			cGuess = 50;
+			turnCount++;
+			cGuess = (high + low) / 2;
 			System.out.println("My guess: " + cGuess);
 			System.out.println("Was my guess too (H)igh, too (L)ow, or (C)orrect?");
 			System.out.print("Respond with H, L, or C: ");
 			String uResponse = input.nextLine();
 
 			if (uResponse.equalsIgnoreCase("h")){
-				cGuess = cGuess / 2;
+				high = cGuess;
+				cGuess = (high + low) / 2;
 			} else if (uResponse.equalsIgnoreCase("l")){
-				cGuess = cGuess + (cGuess / 2);
+				low = cGuess;
+				cGuess = (high + low) / 2;
 			} else if (uResponse.equalsIgnoreCase("c")){
 				keepGoing = false;
-				System.out.println("I got it!");
+				System.out.println("I got it in " + turnCount + " turns!");
 			} 
 		}
 	} // end computerGuesses
